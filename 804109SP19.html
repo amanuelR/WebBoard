@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Drawing Board</title>
+    <link rel="stylesheet" type="text/css" href="drawingBoardCSS.css"/>
+</head>
+<body>
+    <header>
+        <div class="divHeading">
+            <h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drawing Board</h2>
+        </div>
+    </header>
+
+
+    <section id="1">
+        <div class="divContainer">
+            <div class="content">
+                <ul class="uolist">
+                    <li id="strokeClist"><button id="StrokeColor" onclick=color_Stroke()>Stroke Color</button></li>
+                    <li id="selectStrokeSize"><button id="StrokeSize" onclick=strokeSize()>Stroke Size</button></li>
+                    <li><button id="brush" onclick=isBrush()>Brush</button></li>
+                    <li > <a href="" id="save"><button id="Save" onclick=save_Picture()>Save</button></a></li> <!-- button can not be nested inside element a, but this is working-->
+                    <li><button id="Clear" onclick=clear_Board()>Clear</button></li>
+                    <li id="FeedBack"><button id="fb" onclick=feedBack()>Feedback</button></li>
+                    <li><button id="About" onclick=about_W()>About</button></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <canvas id="canvas"></canvas>
+    <script src="drawingBoardJS.js">
+       
+    </script>
+
+    <section><footer><h6>Amanuel Reda  CS80 Internet Programming &copy; 2019</h6> <p id="datentime"></p></footer></section>
+    <script>
+ 
+        //display date
+        var date = new Date(); // Date() object 
+        var x;
+        if ((date.getHours() - 12) > 0) {
+
+            x = 'PM';
+        }
+        else {
+            x = 'AM';
+        }
+        document.getElementById('datentime').innerHTML = (("0" + (date.getMonth() + 1)).slice(-2)) + "-" + (("0" + date.getDate()).slice(-2)) + "-" + (date.getFullYear()) + " " + (("0" + date.getHours()).slice(-2) - 12)
+            + ":" + (("0" + date.getMinutes()).slice(-2)) + " " + x;
+
+    </script>
+</body>
+</html>
